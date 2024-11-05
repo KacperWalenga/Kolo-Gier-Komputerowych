@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3f7f845cfdfb83b4597aae966022b206
+timeCreated: 1437763044
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/Scripts/CharacterController/Editor/Resources/vSkin.guiskin
+  uploadId: 347827

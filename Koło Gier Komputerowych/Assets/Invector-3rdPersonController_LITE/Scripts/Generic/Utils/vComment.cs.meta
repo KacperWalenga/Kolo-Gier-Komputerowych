@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 19c789670a80b704eba4dfebed94a111
+timeCreated: 1476921840
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/Scripts/Generic/Utils/vComment.cs
+  uploadId: 347827

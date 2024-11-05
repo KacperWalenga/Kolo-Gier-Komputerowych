@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b13e3a928ea3ce147ab377c119d0b9e7
+timeCreated: 1486650367
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/3D Models/Others/IcePhysics.physicMaterial
+  uploadId: 347827
