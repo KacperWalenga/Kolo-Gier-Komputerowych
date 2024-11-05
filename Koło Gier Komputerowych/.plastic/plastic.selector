@@ -1,4 +1,0 @@
-repository "Koło Gier Komputerowych@Collegium_Witelona_Kolo_Gier@cloud"
-  path "/"
-    br "/main"
-    co "/main"
