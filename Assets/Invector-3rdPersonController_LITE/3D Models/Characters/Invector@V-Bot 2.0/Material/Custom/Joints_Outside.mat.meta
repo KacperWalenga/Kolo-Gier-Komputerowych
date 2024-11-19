@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f51c03443b297bb4a85e94d7738c2bb9
+timeCreated: 1466380218
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/3D Models/Characters/Invector@V-Bot
+    2.0/Material/Custom/Joints_Outside.mat
+  uploadId: 347827

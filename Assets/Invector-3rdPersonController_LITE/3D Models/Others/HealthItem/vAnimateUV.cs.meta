@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e9ccff300e5a8e6499d592844b2499d4
+timeCreated: 1462219088
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/3D Models/Others/HealthItem/vAnimateUV.cs
+  uploadId: 347827

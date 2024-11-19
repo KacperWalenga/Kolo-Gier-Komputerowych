@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 458f12bccc36f10478c305cb51ae2729
+timeCreated: 1440100029
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 82048
+  packageName: Third Person Controller - Basic Locomotion FREE
+  packageVersion: 2.0
+  assetPath: Assets/Invector-3rdPersonController_LITE/README_Basic.txt
+  uploadId: 347827
