@@ -4,9 +4,9 @@ public class Projectile : MonoBehaviour
 {
     public float scale = 0.2f; // Initial scale of the projectile
     public float maxScale = 1.5f; // Maximum scale
-    public float damage = 1f; // Initial damage
+    public float damage = 10f; // Initial damage
     public float maxDamage = 30f; // Maximum damage
-    public float projectileSpeed; // Speed of the projectile
+    public float projectileSpeed; // Speed of the projectil
 
     private Rigidbody rb;
 
