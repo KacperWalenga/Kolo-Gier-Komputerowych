@@ -6,11 +6,11 @@ public class Projectile : MonoBehaviour
     public float maxScale = 1.5f; // Maximum scale
     public float damage = 10f; // Initial damage
     public float maxDamage = 30f; // Maximum damage
-    public float projectileSpeed; // Speed of the projectil
+    public float projectileSpeed; // Speed of the projectile
 
     private Rigidbody rb;
-
-    void Awake()
+    
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         if (rb != null)
@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void IncreaseScale(float scaleGrowthRate, float deltaTime)
+    public void IncreaseScaleOfProjectile(float scaleGrowthRate, float deltaTime)
     {
         scale += scaleGrowthRate * deltaTime;
         scale = Mathf.Min(scale, maxScale);
@@ -30,7 +30,7 @@ public class Projectile : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
     }
 
-    public void Launch(Vector3 direction)
+    public void LaunchProjectile(Vector3 direction)
     {
         if (rb != null)
         {

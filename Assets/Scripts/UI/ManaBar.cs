@@ -12,14 +12,14 @@ public class ManaBar : MonoBehaviour
     public Image manaBar;
     void Start()
     {
-        currentMana = playerStats.currentMana;
-        maxMana = playerStats.maxMana;
+        currentMana = playerStats.currentPlayerMana;
+        maxMana = playerStats.maxPlayerMana;
         manaBar = GetComponent<Image>();
     }
     void Update()
     {
-        currentMana = playerStats.currentMana;
-        maxMana = playerStats.maxMana;         
+        currentMana = playerStats.currentPlayerMana;
+        maxMana = playerStats.maxPlayerMana;         
         manaBar.fillAmount = currentMana / maxMana;
     }
 

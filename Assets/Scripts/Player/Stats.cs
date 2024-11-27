@@ -2,59 +2,46 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Stats : MonoBehaviour
 {
-
-    public float currentMana;
-    public float maxMana = 100f;
-    public bool regeneratingMana = false;
-
-    public event Action<float, float> OnManaChanged;
-
-    public void SetCurretMana(float mana)
-    {
-        currentMana = Mathf.Clamp(mana, 0, maxMana);
-        OnManaChanged?.Invoke(currentMana, maxMana);
-    }
-
-
+    public float maxPlayerMana = 100f;
+    public float currentPlayerMana;
     void Start()
     {
-        currentMana = maxMana;
+        currentPlayerMana = maxPlayerMana;
     }
     
-
-    public bool CheckMana(float projectileManaCost, float projectileScale)
+    public bool CheckIfPlayerHaveEnoughManaToShoot(float projectileManaCost, float projectileScale)
     {
-        return currentMana >= projectileManaCost * projectileScale;
+        return currentPlayerMana >= projectileManaCost * projectileScale;
     }
-    public float UseMana(float projectileManaCost, float projectileScale)
+    public void UsePlayerMana(float projectileManaCost, float projectileScale)
     {   
-        return currentMana -= projectileManaCost * projectileScale;;
+        currentPlayerMana -= projectileManaCost * projectileScale;;
     }
 
     private Coroutine manaRegenerationCoroutine;
-    private float regenerationCooldown = 2f;
-    private float regenerationRate = 5f;
+    private float manaRegenerationCooldown = 2f;
+    private float manaRegenerationRate = 5f;
 
-    public void StartRegeneration()
+    public void StartManaRegeneration()
     {
         if (manaRegenerationCoroutine != null)
         {
             StopCoroutine(manaRegenerationCoroutine);
         }
 
-        manaRegenerationCoroutine = StartCoroutine(RegenerateMana());
+        manaRegenerationCoroutine = StartCoroutine(RegeneratePlayerMana());
     }
-
-    private IEnumerator RegenerateMana()
+    private IEnumerator RegeneratePlayerMana()
     {
-        yield return new WaitForSeconds(regenerationCooldown);
+        yield return new WaitForSeconds(manaRegenerationCooldown);
 
-        while (currentMana < maxMana)
+        while (currentPlayerMana < maxPlayerMana)
         {
-            currentMana += regenerationRate * Time.deltaTime;
+            currentPlayerMana += manaRegenerationRate * Time.deltaTime;
             yield return null;
         }
 
