@@ -1,5 +1,5 @@
 using UnityEngine;
-public class Spawner : MonoBehaviour
+public class DistanceAttack : MonoBehaviour
 {
     private Projectile currentProjectile;
     public GameObject projectilePrefab; // prefab to set in inspector;
@@ -18,49 +18,77 @@ public class Spawner : MonoBehaviour
     public Stats playerStats;
     [SerializeField]
     public float distanceAttackManaCost = 10f;
+
+    public bool isActive = false;
     
-    void Update()
+    public void Activate()
     {
-        if (Input.GetMouseButtonDown(0)) // on lmb click
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
+    private void Update()
+    {
+        if (!isActive) return;
+        
+        if (Input.GetMouseButtonDown(0)) // lmb clicked
         {
+            StartRangedAttack();
+        }
+
+        if (Input.GetMouseButton(0) && currentProjectile != null) // lmb holding
+        {
+            ChargeProjectile();
+        }
+
+        if (Input.GetMouseButtonUp(0) && currentProjectile != null) // lmb release
+        {
+            ReleaseProjectile();
+        }
+    }
+    
+    public void StartRangedAttack()
+    {
             // check if we have enough mana to make an distance attack
             if (!playerStats.CheckIfPlayerHaveEnoughManaToShoot(distanceAttackManaCost, projectileScale)) return;
-            
+
             // spawn projectile at given position
-            Vector3 spawnPosition = transform.position + (transform.forward * projectileSpawnDistance) + (transform.up * projectileSpawnHeight);
-            
+            Vector3 spawnPosition = transform.position + (transform.forward * projectileSpawnDistance) +
+                                    (transform.up * projectileSpawnHeight);
+
             GameObject newProjectile = Instantiate(projectilePrefab, spawnPosition, transform.rotation);
             currentProjectile = newProjectile.GetComponent<Projectile>();
-            
+
             // assign values to projectile if it's exists
             if (currentProjectile != null)
             {
                 currentProjectile.projectileSpeed = projectileSpeed;
             }
-        }
-        
-        if (Input.GetMouseButton(0) && currentProjectile != null) // while holding lmb
-        {
-            
-            projectileScale = currentProjectile.scale; 
-            
+    }
+
+    public void ChargeProjectile()
+    {
+            projectileScale = currentProjectile.scale;
+
             // we make bigger projectile until we have enough mana
             if (playerStats.CheckIfPlayerHaveEnoughManaToShoot(distanceAttackManaCost, projectileScale))
             {
                 currentProjectile.IncreaseScaleOfProjectile(projectileScaleGrowthRate, Time.deltaTime);
             }
-            
+
             // projectile position is updated according to player position
-            currentProjectile.transform.position = transform.position + (transform.forward * projectileSpawnDistance) + (transform.up * projectileSpawnHeight);
-        }
-        
-        if (Input.GetMouseButtonUp(0) && currentProjectile != null) // on lmb release
-        {
+            currentProjectile.transform.position = transform.position + (transform.forward * projectileSpawnDistance) +
+                                                   (transform.up * projectileSpawnHeight);
+    }
+
+    public void ReleaseProjectile(){
             currentProjectile.LaunchProjectile(transform.forward); // distance attack launch
             playerStats.UsePlayerMana(distanceAttackManaCost, currentProjectile.scale); // player loses defined amount of mana
             playerStats.StartManaRegeneration();
             currentProjectile = null; // we set to null to make instance of next projectile
-        }
     }
-
 }
